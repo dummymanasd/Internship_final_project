@@ -12,15 +12,19 @@ using Internship2024.Model;
 using Internship2024.Presenter;
 using Internship2024.Service;
 using Internship2024.View;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
 
 namespace Internship2024
 {
     public partial class AddItems : Form, IAreaCreateView
     {
         private  Internship2024DB db;
+        private pl_areaRow _areaRow;
         public AddItems()
         {
             InitializeComponent();
+            
             Internship2024DB db = new Internship2024DB(); 
             AreaCreateRepository repository = new AreaCreateRepository(db); 
             AreaCreateService service = new AreaCreateService(repository); 
@@ -30,7 +34,20 @@ namespace Internship2024
 
         private void ultraLabel1_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Do you want to close the window? :(", "Confirmation", MessageBoxButtons.YesNoCancel);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                
+            }
+            else
+            {
+                // this will handle "Cancel" button click
+            }
         }
 
         private void ultraCheckEditor1_CheckedChanged(object sender, EventArgs e)
@@ -66,7 +83,7 @@ namespace Internship2024
         public string DepartmentName
         {
             get { return departmentNameTxt.Text;}
-            set { departmentNameTxt.Text = value;}
+            set { departmentNameTxt.Text = value; }
         }
 
         public bool IsActive
@@ -89,7 +106,15 @@ namespace Internship2024
         {
             try
             {
-                Presenter.CreateArea();
+                // Presenter.CreateArea();
+                // _areaRow.Unique_code = UniqueCode;
+                // _areaRow.Area_code = AreaCode;
+                // _areaRow.Name = AreaName;
+                // _areaRow.Description = Description;
+                // // _areaRow.Department_id = DepartmentName;
+                // _areaRow.Is_for_dispensing = IsForDispensing;
+                // _areaRow.Status = IsActive;
+                Presenter.CreateArea(_areaRow);
                 MessageBox.Show("The data is inserted sucessfully");
             }
             catch (Exception ex)
@@ -98,6 +123,15 @@ namespace Internship2024
             }
             
         }
-        
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void isforDispenCheckBox_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

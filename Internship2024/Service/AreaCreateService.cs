@@ -18,9 +18,9 @@ namespace Internship2024.Service
 
       
 
-        public void CreateArea(AreaCreate area)
+        public void CreateArea(pl_areaRow _areaRow)
         {
-            _repository.CreateArea(area);
+            _repository.CreateArea(_areaRow);
         }
 
         public string GetUniqueCodeFromRepo()

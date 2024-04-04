@@ -52,3 +52,5 @@ C:\Users\user\RiderProjects\Internship_final_project\Internship2024\obj\Debug\In
 C:\Users\user\RiderProjects\Internship_final_project\Internship2024\obj\Debug\Internship2024.csproj.CopyComplete
 C:\Users\user\RiderProjects\Internship_final_project\Internship2024\obj\Debug\Internship2024.exe
 C:\Users\user\RiderProjects\Internship_final_project\Internship2024\obj\Debug\Internship2024.pdb
+C:\Users\user\RiderProjects\Internship_final_project\Internship2024\bin\Debug\Infragistics4.Win.UltraWinCarousel.v14.2.dll
+C:\Users\user\RiderProjects\Internship_final_project\Internship2024\bin\Debug\Infragistics4.Win.UltraWinCarousel.v14.2.xml

@@ -39,6 +39,9 @@
     <Reference Include="Infragistics4.Win.DataVisualization.UltraDataChart.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.Misc.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.Portable.Core.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinCarousel.v14.2">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Infragistics\2014.2\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinCarousel.v14.2.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics4.Win.UltraWinEditors.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -72,6 +75,7 @@
     </Compile>
     <Compile Include="Model\AreaCreate.cs" />
     <Compile Include="Model\AreaCreateRepository.cs" />
+    <Compile Include="Model\Department.cs" />
     <Compile Include="Model\IAreaCreateRepository.cs" />
     <Compile Include="Presenter\AreaCreatePresenter.cs" />
     <Compile Include="Program.cs" />

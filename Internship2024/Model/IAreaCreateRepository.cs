@@ -2,7 +2,7 @@
 {
     public interface IAreaCreateRepository
     {
-        void CreateArea(AreaCreate create);
+        void CreateArea(pl_areaRow _areaRow);
         string GetUniqueCodeFromDatabase();
     }
 }

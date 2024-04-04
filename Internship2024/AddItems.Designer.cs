@@ -29,6 +29,7 @@ namespace Internship2024
         /// </summary>
         private void InitializeComponent()
         {
+            this.departmentNameTxt = new System.Windows.Forms.ComboBox();
             this.createAreaLbl = new Infragistics.Win.Misc.UltraLabel();
             this.uCodeLbl = new Infragistics.Win.Misc.UltraLabel();
             this.aNameLbl = new Infragistics.Win.Misc.UltraLabel();
@@ -39,7 +40,6 @@ namespace Internship2024
             this.uniqueCodeTxt = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.areaNameTxt = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.areaCodeTxt = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.departmentNameTxt = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.isforDispenCheckBox = new System.Windows.Forms.CheckBox();
             this.isActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.cancelBtn = new Infragistics.Win.Misc.UltraButton();
@@ -48,8 +48,18 @@ namespace Internship2024
             ((System.ComponentModel.ISupportInitialize)(this.uniqueCodeTxt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaNameTxt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaCodeTxt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentNameTxt)).BeginInit();
             this.SuspendLayout();
+            // 
+            // departmentNameTxt
+            // 
+            this.departmentNameTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departmentNameTxt.FormattingEnabled = true;
+            this.departmentNameTxt.Items.AddRange(new object[] { "Item 1", "Item 2", "Item 3" });
+            this.departmentNameTxt.Location = new System.Drawing.Point(250, 308);
+            this.departmentNameTxt.Name = "departmentNameTxt";
+            this.departmentNameTxt.Size = new System.Drawing.Size(397, 24);
+            this.departmentNameTxt.TabIndex = 7;
+            this.departmentNameTxt.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // createAreaLbl
             // 
@@ -119,6 +129,7 @@ namespace Internship2024
             this.uniqueCodeTxt.Location = new System.Drawing.Point(250, 82);
             this.uniqueCodeTxt.Multiline = true;
             this.uniqueCodeTxt.Name = "uniqueCodeTxt";
+            this.uniqueCodeTxt.ReadOnly = true;
             this.uniqueCodeTxt.Size = new System.Drawing.Size(397, 42);
             this.uniqueCodeTxt.TabIndex = 4;
             // 
@@ -138,14 +149,6 @@ namespace Internship2024
             this.areaCodeTxt.Size = new System.Drawing.Size(397, 42);
             this.areaCodeTxt.TabIndex = 6;
             // 
-            // departmentNameTxt
-            // 
-            this.departmentNameTxt.Location = new System.Drawing.Point(250, 308);
-            this.departmentNameTxt.Multiline = true;
-            this.departmentNameTxt.Name = "departmentNameTxt";
-            this.departmentNameTxt.Size = new System.Drawing.Size(397, 42);
-            this.departmentNameTxt.TabIndex = 7;
-            // 
             // isforDispenCheckBox
             // 
             this.isforDispenCheckBox.AutoSize = true;
@@ -156,7 +159,7 @@ namespace Internship2024
             this.isforDispenCheckBox.TabIndex = 11;
             this.isforDispenCheckBox.Text = "Is For Dispensing";
             this.isforDispenCheckBox.UseVisualStyleBackColor = true;
-            this.isforDispenCheckBox.CheckedChanged += new System.EventHandler(this.ultraLabel1_Click);
+            this.isforDispenCheckBox.Click += new System.EventHandler(this.isforDispenCheckBox_Click);
             // 
             // isActiveCheckbox
             // 
@@ -168,7 +171,6 @@ namespace Internship2024
             this.isActiveCheckbox.TabIndex = 12;
             this.isActiveCheckbox.Text = "Is Active";
             this.isActiveCheckbox.UseVisualStyleBackColor = true;
-            this.isActiveCheckbox.CheckedChanged += new System.EventHandler(this.ultraLabel1_Click);
             // 
             // cancelBtn
             // 
@@ -193,11 +195,11 @@ namespace Internship2024
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 612);
+            this.Controls.Add(this.departmentNameTxt);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.isActiveCheckbox);
             this.Controls.Add(this.isforDispenCheckBox);
-            this.Controls.Add(this.departmentNameTxt);
             this.Controls.Add(this.areaCodeTxt);
             this.Controls.Add(this.areaNameTxt);
             this.Controls.Add(this.uniqueCodeTxt);
@@ -214,7 +216,6 @@ namespace Internship2024
             ((System.ComponentModel.ISupportInitialize)(this.uniqueCodeTxt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaNameTxt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaCodeTxt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentNameTxt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -222,6 +223,10 @@ namespace Internship2024
         private Infragistics.Win.Misc.UltraButton saveBtn;
 
         #endregion
+        
+       
+
+        private System.Windows.Forms.ComboBox departmentNameTxt;
 
         private Infragistics.Win.Misc.UltraLabel createAreaLbl;
         private Infragistics.Win.Misc.UltraLabel uCodeLbl;
@@ -233,7 +238,6 @@ namespace Internship2024
         private Infragistics.Win.UltraWinEditors.UltraTextEditor uniqueCodeTxt;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor areaNameTxt;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor areaCodeTxt;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor departmentNameTxt;
         private System.Windows.Forms.CheckBox isforDispenCheckBox;
         private System.Windows.Forms.CheckBox isActiveCheckbox;
         private Infragistics.Win.Misc.UltraButton cancelBtn;

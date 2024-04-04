@@ -9,7 +9,7 @@ namespace Internship2024.Service
 {
     public interface IAreaCreateService
     {
-        void CreateArea(AreaCreate area);
+        void CreateArea(pl_areaRow _areaRow);
 
         string GetUniqueCodeFromRepo();
     }

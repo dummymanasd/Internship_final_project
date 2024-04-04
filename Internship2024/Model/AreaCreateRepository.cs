@@ -49,22 +49,36 @@
             }
             
 
-            public void CreateArea(AreaCreate area)
+            public void CreateArea(pl_areaRow area)
             {
                 // ctrl +k + c 
-                using (SqlCommand cmd = _db.CreateCommand(
-                           "INSERT INTO pl_area (unique_code, name, area_code, is_for_dispensing) " +
-                           "VALUES (@UniqueCode, @AreaName, @AreaCode,  @IsForDispensing)"))
-                {
-                    _db.AddParameter(cmd, "UniqueCode", DbType.String, area.UniqueCode);
-                    _db.AddParameter(cmd, "AreaName", DbType.String, area.AreaName);
-                    _db.AddParameter(cmd, "AreaCode", DbType.String, area.AreaCode);
-                    // _db.AddParameter(cmd, "DepartmentName", DbType.String, area.DepartmentName);
-                    // _db.AddParameter(cmd, "Description", DbType.String, area.Description); 
-                    _db.AddParameter(cmd, "IsForDispensing", DbType.Boolean, area.IsForDispensing);
-                    // _db.AddParameter(cmd, "", DbType.Boolean, area.IsActive);
+                // using (SqlCommand cmd = _db.CreateCommand(
+                //            "INSERT INTO pl_area (unique_code, name, area_code, is_for_dispensing) " +
+                //            "VALUES (@UniqueCode, @AreaName, @AreaCode,  @IsForDispensing)"))
+                // {
+                //     _db.AddParameter(cmd, "UniqueCode", DbType.String, area.UniqueCode);
+                //     _db.AddParameter(cmd, "AreaName", DbType.String, area.AreaName);
+                //     _db.AddParameter(cmd, "AreaCode", DbType.String, area.AreaCode);
+                //     // _db.AddParameter(cmd, "DepartmentName", DbType.String, area.DepartmentName);
+                //     // _db.AddParameter(cmd, "Description", DbType.String, area.Description); 
+                //     _db.AddParameter(cmd, "IsForDispensing", DbType.Boolean, area.IsForDispensing);
+                //     // _db.AddParameter(cmd, "", DbType.Boolean, area.IsActive);
+                //
+                //     _db.ExecuteNonQuery(cmd);
+                // }
 
-                    _db.ExecuteNonQuery(cmd);
+                try
+                {
+                    _db.BeginTransaction();
+                    pl_area objArea = new pl_area(_db);
+                    objArea.Insert(area);
+                    _db.CommitTransaction();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    _db.RollbackTransaction();
+                    throw;
                 }
 
                     

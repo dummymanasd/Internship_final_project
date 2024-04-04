@@ -1,4 +1,5 @@
-﻿using Internship2024.Model;
+﻿using System;
+using Internship2024.Model;
 using Internship2024.Service;
 using Internship2024.View;
 
@@ -21,20 +22,31 @@ namespace Internship2024.Presenter
         }
 
        
-        public void CreateArea()
+        public void CreateArea(pl_areaRow _areaRow)
         {
-            AreaCreate create = new AreaCreate
-            {
-                UniqueCode = _areaCreateView.UniqueCode,
-                AreaName = _areaCreateView.AreaName,
-                AreaCode = _areaCreateView.AreaCode,
-                DepartmentName = _areaCreateView.DepartmentName,
-                Description = _areaCreateView.Description,
-                IsActive = _areaCreateView.IsActive,
-                IsForDispensing = _areaCreateView.IsForDispensing
-            };
+            // AreaCreate create = new AreaCreate
+            // {
+            //     UniqueCode = _areaCreateView.UniqueCode,
+            //     AreaName = _areaCreateView.AreaName,
+            //     AreaCode = _areaCreateView.AreaCode,
+            //     DepartmentName = _areaCreateView.DepartmentName,
+            //     Description = _areaCreateView.Description,
+            //     IsActive = _areaCreateView.IsActive,
+            //     IsForDispensing = _areaCreateView.IsForDispensing
+            // };
 
-            _areaCreateService.CreateArea(create);
+            try
+            {
+                _areaCreateService.CreateArea(_areaRow);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            // _areaCreateService.CreateArea(create);
         }
         
         
