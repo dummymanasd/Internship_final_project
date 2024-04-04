@@ -12,6 +12,8 @@ namespace Internship2024.Service
         void CreateArea(pl_areaRow _areaRow);
 
         string GetUniqueCodeFromRepo();
+        
+        List<Department> LoadDepartmentsFromDB();
     }
     
 }

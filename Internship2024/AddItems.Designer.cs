@@ -54,7 +54,7 @@ namespace Internship2024
             // 
             this.departmentNameTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.departmentNameTxt.FormattingEnabled = true;
-            this.departmentNameTxt.Items.AddRange(new object[] { "Item 1", "Item 2", "Item 3" });
+            // this.departmentNameTxt.Items.AddRange(new object[] { "Item 1", "Item 2", "Item 3" });
             this.departmentNameTxt.Location = new System.Drawing.Point(250, 308);
             this.departmentNameTxt.Name = "departmentNameTxt";
             this.departmentNameTxt.Size = new System.Drawing.Size(397, 24);
@@ -212,6 +212,7 @@ namespace Internship2024
             this.Controls.Add(this.createAreaLbl);
             this.Name = "AddItems";
             this.Text = "AddItems";
+            // this.Load += new System.EventHandler(this.AddItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.desTextArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uniqueCodeTxt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaNameTxt)).EndInit();

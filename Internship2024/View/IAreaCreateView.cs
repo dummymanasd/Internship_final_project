@@ -1,4 +1,6 @@
-﻿using Internship2024.Presenter;
+﻿using System.Collections.Generic;
+using Internship2024.Model;
+using Internship2024.Presenter;
 
 namespace Internship2024.View
 {
@@ -19,10 +21,10 @@ namespace Internship2024.View
             get;
             set;
         }
-        string DepartmentName {
-            get;
-            set;
-        }
+        // string DepartmentID {
+        //     get;
+        //     set;
+        // }
         bool IsActive {
             get;
             set;
@@ -32,5 +34,7 @@ namespace Internship2024.View
             set;
         }
         AreaCreatePresenter Presenter { get; set; }
+
+        void DisplayDepartments(List<Department> departments);
     }
 }

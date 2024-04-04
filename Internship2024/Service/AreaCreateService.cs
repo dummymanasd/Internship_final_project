@@ -28,5 +28,10 @@ namespace Internship2024.Service
            string uCode =  _repository.GetUniqueCodeFromDatabase();
            return uCode;
         }
+
+        public List<Department> LoadDepartmentsFromDB()
+        {
+            return _repository.LoadDepartmentsFromDatabase();
+        }
     }
 }

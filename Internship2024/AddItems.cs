@@ -20,7 +20,7 @@ namespace Internship2024
     public partial class AddItems : Form, IAreaCreateView
     {
         private  Internship2024DB db;
-        private pl_areaRow _areaRow;
+         pl_areaRow _areaRow = new pl_areaRow();
         public AddItems()
         {
             InitializeComponent();
@@ -29,6 +29,8 @@ namespace Internship2024
             AreaCreateRepository repository = new AreaCreateRepository(db); 
             AreaCreateService service = new AreaCreateService(repository); 
             Presenter = new AreaCreatePresenter(this, service); 
+            
+            
             
         }
 
@@ -79,12 +81,18 @@ namespace Internship2024
             get { return desTextArea.Text;}
             set { desTextArea.Text = value;} 
         }
+        //
+        // public  DepartmentName
+        // {
+        //     get { return Convert.ToInt32(departmentNameTxt.Text);}
+        //     set { departmentNameTxt.Text = value.ToString(); }
+        // }
 
-        public string DepartmentName
-        {
-            get { return departmentNameTxt.Text;}
-            set { departmentNameTxt.Text = value; }
-        }
+        // public int DepartmentID
+        // {
+        //     get { return departmentNameTxt.SelectedValue.Text;}
+        //     set { departmentNameTxt.Text = value; }
+        // }
 
         public bool IsActive
         {
@@ -99,27 +107,35 @@ namespace Internship2024
         }
         public AreaCreatePresenter Presenter { get; set; }
         
-       
+        public void DisplayDepartments(List<Department> departments)
+        {
+            departmentNameTxt.DataSource = departments;
+            departmentNameTxt.DisplayMember = "Name";
+            departmentNameTxt.ValueMember = "ID";
+        }
 
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                // Presenter.CreateArea();
-                // _areaRow.Unique_code = UniqueCode;
-                // _areaRow.Area_code = AreaCode;
-                // _areaRow.Name = AreaName;
-                // _areaRow.Description = Description;
-                // // _areaRow.Department_id = DepartmentName;
-                // _areaRow.Is_for_dispensing = IsForDispensing;
-                // _areaRow.Status = IsActive;
+                int departmentId = Convert.ToInt32(departmentNameTxt.SelectedValue);
+                
+                _areaRow.Unique_code = UniqueCode;
+                _areaRow.Area_code = AreaCode;
+                _areaRow.Name = AreaName;
+                _areaRow.Description = Description;
+                _areaRow.Department_id = departmentId;
+                _areaRow.Is_for_dispensing = IsForDispensing;
+                _areaRow.Status = IsActive;
+                // _areaRow.Table_pid = 1;
                 Presenter.CreateArea(_areaRow);
                 MessageBox.Show("The data is inserted sucessfully");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -133,5 +149,10 @@ namespace Internship2024
         {
             
         }
+
+// //private void AddItems_Load(object sender, EventArgs e)
+//         {
+//             throw new System.NotImplementedException();
+//         }
     }
 }

@@ -19,6 +19,7 @@ namespace Internship2024.Presenter
             
             string uniqueCode = _areaCreateService.GetUniqueCodeFromRepo();
             _areaCreateView.UniqueCode = uniqueCode;
+            LoadDepartments();
         }
 
        
@@ -49,6 +50,11 @@ namespace Internship2024.Presenter
             // _areaCreateService.CreateArea(create);
         }
         
+        public void LoadDepartments()
+        {
+            var departments = _areaCreateService.LoadDepartmentsFromDB();
+            _areaCreateView.DisplayDepartments(departments);
+        }
         
         
     }

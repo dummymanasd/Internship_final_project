@@ -16,10 +16,10 @@
             {
                 _db = db;
             }
-            
+
             // to get the unique code from the database
-            
-            
+
+
             public string GetUniqueCodeFromDatabase()
             {
                 string query = "SELECT MAX(CAST(SUBSTRING(unique_code, 2, LEN(unique_code) - 1) AS INT)) FROM pl_area";
@@ -35,19 +35,18 @@
                         // Format the new unique code
                         string newUniqueCode = $"A{maxNumericValue:D3}";
                         return newUniqueCode;
-                        
+
                     }
                     else
                     {
                         // If no records found or all UniqueCode values are null, start from A001
                         return "A001";
                     }
-                    
+
                 }
-                
-                
+
+
             }
-            
 
             public void CreateArea(pl_areaRow area)
             {
@@ -70,8 +69,20 @@
                 try
                 {
                     _db.BeginTransaction();
+
+                    pl_objectRow row = new pl_objectRow();
+                    row.Table_name = "pl_area";
+                    row.Name = area.Name;
+
+                    pl_object obj = new pl_object(_db);
+                    obj.Insert(row);
+
+                    area.Table_pid = row.Table_pid; // Assign the Table_pid value from the inserted pl_object row
+
+
                     pl_area objArea = new pl_area(_db);
                     objArea.Insert(area);
+
                     _db.CommitTransaction();
                 }
                 catch (Exception e)
@@ -81,8 +92,38 @@
                     throw;
                 }
 
+
+            }
+
+
+            public List<Department> LoadDepartmentsFromDatabase()
+            {
+                var departments = new List<Department>();
+                
+                string query = "SELECT DID, Name FROM Department";
+                using (SqlCommand cmd = new SqlCommand(query, _db.Connection))
+                {
                     
-            }
-            
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var department = new Department
+                                {
+                                    ID = reader.GetInt32(0),
+                                    Name = reader.GetString(1)
+                                };
+
+                                departments.Add(department);
+                            }
+                        }
+                    }
                 }
+
+                return departments;
             }
+        }
+    }
+                        
+            
