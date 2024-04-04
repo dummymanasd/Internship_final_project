@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassFiles\Internship2024DB.cs" />
+    <Compile Include="ClassFiles\pl_area.cs" />
+    <Compile Include="ClassFiles\pl_areaRow.cs" />
+    <Compile Include="ClassFiles\pl_boolean.cs" />
+    <Compile Include="ClassFiles\pl_booleanRow.cs" />
+    <Compile Include="ClassFiles\pl_decimal.cs" />
+    <Compile Include="ClassFiles\pl_decimalRow.cs" />
+    <Compile Include="ClassFiles\pl_integer.cs" />
+    <Compile Include="ClassFiles\pl_integerRow.cs" />
     <Compile Include="ClassFiles\pl_object.cs" />
     <Compile Include="ClassFiles\pl_objectRow.cs" />
     <Compile Include="ClassFiles\pl_string.cs" />

@@ -451,5 +451,23 @@ namespace Internship2024
 			}
 			return parameter;
 		}
-	} // End of pl_stringCollection_Base class
+        public virtual bool Update(pl_stringRow value)
+        {
+            SqlCommand cmd = _db.CreateCommand("dbo.pl_string_Update", true);
+            AddParameter(cmd, "Column_type", value.Column_type);
+            AddParameter(cmd, "Data_value", value.Data_value);
+            AddParameter(cmd, "Table_pid", value.Table_pid);
+
+            return 0 != cmd.ExecuteNonQuery();
+        }
+
+     //   public void Update(DataTable table)
+      //  {
+         //   Update(table, true);
+      //  }
+    }
+   
+
+
+    // End of pl_stringCollection_Base class
 }  // End of namespace
