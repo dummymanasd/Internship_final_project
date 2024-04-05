@@ -191,7 +191,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_booleanRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_booleanRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_boolean_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_boolean_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);

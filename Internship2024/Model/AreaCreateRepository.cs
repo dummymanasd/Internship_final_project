@@ -78,7 +78,7 @@
                     obj.Insert(row);
 
                     area.Table_pid = row.Table_pid; // Assign the Table_pid value from the inserted pl_object row
-
+                    long Table_pid = row.Table_pid;
 
                     pl_area objArea = new pl_area(_db);
                     objArea.Insert(area);
@@ -121,7 +121,7 @@
 
                     //Boolean- Insert
                     pl_booleanRow plBooleanRowIsForDispen = new pl_booleanRow();
-                    plBooleanRowIsForDispen.Table_pid = area.Table_pid;
+                    plBooleanRowIsForDispen.Table_pid = Table_pid;
                     plBooleanRowIsForDispen.Column_type = "s_for_dispensing";
                     plBooleanRowIsForDispen.Data_value = area.Is_for_dispensing;
 
@@ -130,7 +130,7 @@
                     
                     //Boolean -Insert
                     pl_booleanRow plBooleanRowStatus = new pl_booleanRow();
-                    plBooleanRowStatus.Table_pid = area.Table_pid;
+                    plBooleanRowStatus.Table_pid = Table_pid;
                     plBooleanRowStatus.Column_type = "status";
                     plBooleanRowStatus.Data_value = area.Status;
                     
