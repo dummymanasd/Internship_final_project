@@ -83,6 +83,68 @@
                     pl_area objArea = new pl_area(_db);
                     objArea.Insert(area);
 
+                    // Insert UniqueCode
+                    pl_stringRow objStringRowUniqueCode = new pl_stringRow();
+                    objStringRowUniqueCode.Table_pid = row.Table_pid;
+                    objStringRowUniqueCode.Column_type = "unique_code";
+                    objStringRowUniqueCode.Data_value = area.Unique_code;
+
+                    pl_string plStringUniqueCode = new pl_string(_db);
+                    plStringUniqueCode.Insert(objStringRowUniqueCode);
+
+                    // Insert AreaName
+                    pl_stringRow objStringRowAreaName = new pl_stringRow();
+                    objStringRowAreaName.Table_pid = row.Table_pid;
+                    objStringRowAreaName.Column_type = "area_name";
+                    objStringRowAreaName.Data_value = area.Name;
+
+                    pl_string plStringAreaName = new pl_string(_db);
+                    plStringAreaName.Insert(objStringRowAreaName);
+
+                    // Insert AreaCode
+                    pl_stringRow objStringRowAreaCode = new pl_stringRow();
+                    objStringRowAreaCode.Table_pid = row.Table_pid;
+                    objStringRowAreaCode.Column_type = "area_code";
+                    objStringRowAreaCode.Data_value = area.Area_code;
+
+                    pl_string plStringAreaCode = new pl_string(_db);
+                    plStringAreaCode.Insert(objStringRowAreaCode);
+
+                    // Insert Description
+                    pl_stringRow objStringRowDescription = new pl_stringRow();
+                    objStringRowDescription.Table_pid = row.Table_pid;
+                    objStringRowDescription.Column_type = "description";
+                    objStringRowDescription.Data_value = area.Description;
+
+                    pl_string plStringDescription = new pl_string(_db);
+                    plStringDescription.Insert(objStringRowDescription);
+
+                    //Boolean- Insert
+                    pl_booleanRow plBooleanRowIsForDispen = new pl_booleanRow();
+                    plBooleanRowIsForDispen.Table_pid = area.Table_pid;
+                    plBooleanRowIsForDispen.Column_type = "s_for_dispensing";
+                    plBooleanRowIsForDispen.Data_value = area.Is_for_dispensing;
+
+                    pl_boolean plBooleanIsforDispen = new pl_boolean(_db);
+                    plBooleanIsforDispen.Insert(plBooleanRowIsForDispen);
+                    
+                    //Boolean -Insert
+                    pl_booleanRow plBooleanRowStatus = new pl_booleanRow();
+                    plBooleanRowStatus.Table_pid = area.Table_pid;
+                    plBooleanRowStatus.Column_type = "status";
+                    plBooleanRowStatus.Data_value = area.Status;
+                    
+                    pl_boolean plBooleanStatus = new pl_boolean(_db);
+                    plBooleanStatus.Insert(plBooleanRowStatus);
+                    
+                    // // Int - Insert
+                    // pl_integerRow plIntegerRow = new pl_integerRow();
+                    // plIntegerRow.Table_pid = area.Table_pid;
+                    // plIntegerRow.Column_type = "department_id";
+                    // plIntegerRow.Data_value = area.Department_id;
+                    
+
+
                     _db.CommitTransaction();
                 }
                 catch (Exception e)
